@@ -1,0 +1,59 @@
+<%= javascript_tag 'test.js'%>
+
+<div class="container">
+
+  <div class="mb-sm">
+    <div class="text-right">
+      <p class="mt icon"><%= link_to fa_icon('edit'), profile_edit_path, title: 'Редактировать профиль' %></p>
+
+      <p class="mt ml icon">
+        <%= link_to fa_icon('trash'), profile_path, data: {
+          turbo_method: :delete,
+          turbo_confirm: "Вы уверены, что хотите удалить профиль?"
+        }, title: 'Удалить профиль' %>
+      </p>
+    </div>
+
+    <%= image_tag @user.avatar.variant(resize_to_fill: [225, 225]) if @user.avatar.attached? %>
+
+    <p class="title mt"><%= "Логин: #{@user.login}" %></p>
+  </div>
+
+  <div class="item-footer">
+    <p class="mt text-lg"><%= "Имя: #{@user.name}" %></p>
+    <p class="mt text-lg"><%= "Фамилия: #{@user.surname}" %></p>
+    <p class="mt text-lg"><%= "Возраст: #{@user.age}" %></p>
+  </div>
+
+  <%= link_to 'Пройти тест на знание английского', tests_path, class: 'button button-main mt' %>
+
+</div>
+
+<div class="container mt">
+  <p class="title-lg mt mb">Мои курсы</p>
+
+  <div class="item-container">
+    <% @courses.each do |course| %>
+      <div class="item mb">
+
+        <div class="text-right">
+            <p class="mt ml icon">
+              <%= link_to fa_icon('trash'), courses_user_path(course), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Вы уверены, что хотите удалить курс?"
+              }, title: 'Удалить' %>
+            </p>
+        </div>
+
+        <p class="text-bold"><%= "Название: #{course.name}" %></p>
+
+        <div class="item-footer">
+          <p class="mt-sm"><%= "Язык изучения: #{course.language}" %></p>
+          <p class="mt-sm"><%= "Цена: #{course.price}" %></p>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+
+</div>

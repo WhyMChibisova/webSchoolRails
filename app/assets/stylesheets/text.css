@@ -1,0 +1,57 @@
+body {
+  color: #03071E;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+a, button {
+  color: #DC2F02;
+}
+
+.title-lg {
+  font-size: 175%;
+}
+
+.title-md, .title {
+  font-size: 150%;
+}
+
+.title-sm {
+  font-size: 125%;
+}
+
+.text-lg {
+  font-size: 110%;
+}
+
+.text-sm {
+  font-size: 80%;
+}
+
+.text-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-red {
+  color: #D00000;
+}
+
+#vo {
+    color: green;
+}
+
+#nvo {
+    color: red;
+}
+
+#ot {
+    color: blue;
+}

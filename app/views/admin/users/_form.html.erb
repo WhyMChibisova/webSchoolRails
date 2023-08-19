@@ -1,0 +1,40 @@
+<%= form_with model: [:admin, user], data: {turbo: false} do |form| %>
+
+  <p><%= form.label :name, 'Имя' %></p>
+  <p><%= form.text_field :name, class: 'form-text-field' %></p>
+  <% user.errors.full_messages_for(:name).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+
+  <p class="mt"><%= form.label :surname, 'Фамилия' %></p>
+  <p><%= form.text_field :surname, class: 'form-text-field' %></p>
+  <% user.errors.full_messages_for(:surname).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+
+  <p class="mt"><%= form.label :age, 'Возраст' %></p>
+  <p><%= form.number_field :age, class: 'form-text-field' %></p>
+  <% user.errors.full_messages_for(:age).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+
+  <p class="mt"><%= form.label :login, 'Логин' %></p>
+  <p><%= form.text_field :login, class: 'form-text-field' %></p>
+  <% user.errors.full_messages_for(:login).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+
+  <p class="mt"><%= form.label :password, 'Пароль' %></p>
+  <p><%= form.password_field :password, class: 'form-text-field' %></p>
+  <% user.errors.full_messages_for(:password).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+
+  <p class="mt"><%= form.label :password_confirmation, 'Подтверждение пароля' %></p>
+  <p><%= form.password_field :password_confirmation, class: 'form-text-field' %></p>
+  <% user.errors.full_messages_for(:password_confirmation).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+
+  <p class="mt"><%= form.submit 'Сохранить', class: 'button button-main' %></p>
+<% end %>

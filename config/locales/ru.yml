@@ -1,0 +1,50 @@
+ru:
+  time:
+    formats:
+      short: "%H:%M"
+  date:
+    formats:
+      short: "%d.%m.%y"
+  activerecord:
+    errors:
+      messages:
+        blank: "Поле не может быть пустым"
+        not_an_integer: "Значение должно быть целым числом"
+        greater_than: "Значение не может быть меньше %{count}"
+        not_a_number: "Значение должно быть числом"
+      models:
+        book:
+          format: "%{message}"
+          attributes:
+            language:
+              too_short: "Значение не может быть меньше %{count} символов"
+              invalid: "Поле может содержать только буквы"
+            author:
+              invalid: "Поле может содержать только буквы"
+            level:
+              inclusion: "Поле может содержать значения А1, А2, В1, В2, С1, С2"
+        course:
+          format: "%{message}"
+          attributes:
+            language:
+              too_short: "Значение не может быть меньше %{count} символов"
+              invalid: "Поле может содержать только буквы"
+            level:
+              inclusion: "Поле может содержать значения А1, А2, В1, В2, С1, С2"
+        event:
+          format: "%{message}"
+          attributes:
+            language:
+              too_short: "Значение не может быть меньше %{count} символов"
+              invalid: "Поле может содержать только буквы"
+        user:
+          format: "%{message}"
+          attributes:
+            login:
+              taken: "Поле должно быть уникальным"
+            password:
+              confirmation: "Пароли должны совпадать"
+            name:
+              invalid: "Поле может содержать только буквы"
+            surname:
+              invalid: "Поле может содержать только буквы"

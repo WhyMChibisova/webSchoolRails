@@ -1,0 +1,42 @@
+<div class="container">
+
+  <%= form_with url: translate_path, method: :post, data: {turbo: false} do %>
+    <div class="translation-container">
+        <div class="translation-item">
+
+          <div class="">
+            <label for="source" class="title">Перевести</label>
+            <%= text_area_tag :source, @source, class: 'translation-text-area mb' %>
+          </div>
+
+          <div class="">
+            <label for="source_language" class="title-sm">С</label>
+
+            <%= select_tag :source_language, options_for_select(@languages, @source_language), class: 'ml-sm button button-main', include_blank: 'Авто-выбор' %>
+          </div>
+
+        </div>
+
+        <div class="translation-item-button">
+          <button type="submit" class="button button-main">
+            Перевести <i class="fa fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="translation-item">
+
+          <div class="">
+            <label for="translation" class="title">Перевод</label>
+            <%= text_area_tag :translation, @translation, class: 'translation-text-area mb', readonly: true %>
+          </div>
+
+          <div class="">
+            <label for="destination_language" class="title-sm">На</label>
+
+            <%= select_tag :destination_language, options_for_select(@languages, @destination_language), class: 'ml-sm button button-main' %>
+          </div>
+
+        </div>
+    </div>
+  <% end %>
+</div>

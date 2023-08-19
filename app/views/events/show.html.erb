@@ -1,0 +1,33 @@
+<div class="container">
+
+  <p class="icon"><%= link_to fa_icon('arrow-left'), :back %></p>
+
+  <div class="mb-sm">
+    <div class="text-right">
+      <% if policy(@event).edit? %>
+        <p class="mt icon"><%= link_to fa_icon('edit'), edit_event_path(@event), title: 'Редактировать' %></p>
+      <% end%>
+
+      <% if policy(@event).destroy? %>
+        <p class="mt ml icon">
+          <%= link_to fa_icon('trash'), event_path(@event), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Вы уверены, что хотите удалить мероприятие?"
+          }, title: 'Удалить' %>
+        </p>
+      <% end %>
+    </div>
+
+    <p class="title"><%= "Название: #{@event.name}" %></p>
+  </div>
+
+  <div class="item-footer">
+    <p class="mt text-lg"><%= "Дата проведения: #{l @event.date, format: :short}" %></p>
+    <p class="mt text-lg"><%= "Время проведения: #{l @event.time, format: :short}" %></p>
+    <p class="mt text-lg"><%= "Место проведения: #{@event.place}" %></p>
+    <p class="mt mb text-lg"><%= "Язык изучения: #{@event.language}" %></p>
+    <label class="mt text-lg">Описание</label>
+    <textarea class="form-text-area mt-sm" disabled><%= @event.description %></textarea>
+  </div>
+
+</div>

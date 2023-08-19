@@ -1,0 +1,27 @@
+<div class="container">
+
+  <p class="icon"><%= link_to fa_icon('arrow-left'), :back %></p>
+
+  <div class="mb-sm">
+    <div class="text-right">
+      <p class="mt icon"><%= link_to fa_icon('edit'), edit_admin_user_path(@user), title: 'Редактировать' %></p>
+
+      <p class="mt ml icon">
+        <%= link_to fa_icon('trash'), admin_user_path(@user), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Вы уверены, что хотите удалить этого пользователя?"
+        }, title: 'Удалить' %>
+      </p>
+    </div>
+
+    <p class="title"><%= "Имя: #{@user.name}" %></p>
+  </div>
+
+  <div class="item-footer">
+    <p class="mt text-lg"><%= "Фамилия: #{@user.surname}" %></p>
+    <p class="mt text-lg"><%= "Возраст: #{@user.age}" %></p>
+    <p class="mt text-lg"><%= "Логин: #{@user.login}" %></p>
+    <p class="mt text-lg"><%= "Роль: #{@user.role}" %></p>
+  </div>
+
+</div>

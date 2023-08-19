@@ -1,0 +1,33 @@
+<div class="container">
+
+  <div class="text-right">
+    <%= form_with method: :get do |form| %>
+      <%= form.label :query, 'Поиск', class: 'title-sm' %>
+      <%= form.text_field :query, placeholder: 'Введите логин', class: 'form-text-field' %>
+      <%= form.submit 'Искать', class: 'button button-main' %>
+    <% end %>
+  </div>
+
+  <h2 class="title-lg mb">Все пользователи  <%= link_to fa_icon('sort-down'), admin_sort_path %></h2>
+
+  <div class="item-container">
+    <% @users.each do |user| %>
+      <div class="item mb">
+
+        <div class="text-right">
+          <p class="icon"><%= link_to fa_icon('info-circle'), admin_user_path(user) %></p>
+        </div>
+
+        <p class="text-bold"><%= "Логин: #{user.login}" %></p>
+
+        <div class="item-footer">
+          <p class="mt-sm"><%= "Роль: #{user.role}" %></p>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+
+  <p class="mt"><%= link_to 'Добавить преподавателя', new_admin_user_path, class: 'button button-main' %></p>
+
+</div>

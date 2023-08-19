@@ -1,0 +1,35 @@
+<div class="container">
+
+  <div class="text-right">
+    <%= form_with method: :get do |form| %>
+      <%= form.label :query, 'Поиск', class: 'title-sm' %>
+      <%= form.text_field :query, placeholder: 'Введите название', class: 'form-text-field' %>
+      <%= form.submit 'Искать', class: 'button button-main' %>
+    <% end %>
+  </div>
+
+  <h2 class="title-lg mb">Учебные материалы  <%= link_to fa_icon('sort-down'), book_sort_path %></h2>
+
+  <div class="item-container">
+    <% @books.each do |book| %>
+      <div class="item mb">
+
+        <div class="text-right">
+          <p class="icon"><%= link_to fa_icon('info-circle'), book %></p>
+        </div>
+
+        <p class="text-bold"><%= "Название: #{book.name}" %></p>
+
+        <div class="item-footer">
+          <p class="mt-sm"><%= "Автор: #{book.author}" %></p>
+          <p class="mt-sm"><%= "Язык изучения: #{book.language}" %></p>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+
+  <% if policy(:book).new? %>
+    <p class="mt"><%= link_to 'Добавить материал', new_book_path, class: 'button button-main' %></p>
+  <% end %>
+</div>

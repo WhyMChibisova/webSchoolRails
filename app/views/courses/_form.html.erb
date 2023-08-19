@@ -1,0 +1,63 @@
+<%= form_with model: course do |form| %>
+
+<div>
+  <p><%= form.label :name, 'Название' %></p>
+  <p><%= form.text_field :name, class: 'form-text-field' %></p>
+  <% course.errors.full_messages_for(:name).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :language, 'Язык изучения' %></p>
+  <p><%= form.text_field :language, class: 'form-text-field' %></p>
+  <% course.errors.full_messages_for(:language).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :level, 'Уровень языка' %></p>
+  <p><%= form.text_field :level, class: 'form-text-field' %></p>
+  <% course.errors.full_messages_for(:level).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :quantity_of_students, 'Количество студентов в группе' %></p>
+  <p><%= form.number_field :quantity_of_students, class: 'form-text-field' %></p>
+  <% course.errors.full_messages_for(:quantity_of_students).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :age_of_group, 'Средний возраст группы' %></p>
+  <p><%= form.number_field :age_of_group, class: 'form-text-field' %></p>
+  <% course.errors.full_messages_for(:age_of_group).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :price, 'Цена' %></p>
+  <p><%= form.number_field :price, class: 'form-text-field' %></p>
+  <% course.errors.full_messages_for(:price).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :description, 'Описание' %></p>
+  <p><%= form.text_area :description, class: 'form-text-area' %></p>
+  <% course.errors.full_messages_for(:description).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.submit 'Сохранить', class: 'button button-main' %></p>
+</div>
+
+<% end %>

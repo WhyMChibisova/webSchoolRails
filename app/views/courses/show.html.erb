@@ -1,0 +1,36 @@
+<div class="container">
+
+  <p class="icon"><%= link_to fa_icon('arrow-left'), :back %></p>
+
+  <div class="mb-sm">
+    <div class="text-right">
+      <% if policy(@course).edit? %>
+        <p class="mt icon"><%= link_to fa_icon('edit'), edit_course_path(@course), title: 'Редактировать' %></p>
+      <% end %>
+
+      <% if policy(@course).destroy? %>
+        <p class="mt ml icon">
+          <%= link_to fa_icon('trash'), course_path(@course), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Вы уверены, что хотите удалить курс?"
+          }, title: 'Удалить' %>
+        </p>
+      <% end %>
+    </div>
+
+    <p class="title mt"><%= "Название: #{@course.name}" %></p>
+  </div>
+
+  <div class="item-footer">
+    <p class="mt text-lg"><%= "Язык изучения: #{@course.language}" %></p>
+    <p class="mt text-lg"><%= "Уровень языка: #{@course.level}" %></p>
+    <p class="mt text-lg"><%= "Количество студентов в группе: #{@course.quantity_of_students}" %></p>
+    <p class="mt text-lg"><%= "Средний возраст группы: #{@course.age_of_group}" %></p>
+    <p class="mt mb text-lg"><%= "Цена: #{@course.price}" %></p>
+    <label class="mt text-lg">Описание</label>
+    <textarea class="form-text-area mt-sm" disabled><%= @course.description %></textarea>
+  </div>
+
+  <p><%= link_to 'Купить курс', courses_user_path(@course), class: 'button button-main mt' %></p>
+
+</div>

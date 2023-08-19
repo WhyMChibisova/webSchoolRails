@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebSchool</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="navbar">
+        <p class="title-sm text-bold"><%= link_to 'MurMur', root_path %></p>
+
+        <div class="">
+          <% if policy(:course).index? %>
+            <p><%= link_to 'Курсы', courses_path %></p>
+          <% end %>
+          <% if policy(:event).index? %>
+            <p><%= link_to 'Мероприятия', events_path %></p>
+          <% end %>
+          <% if policy(:book).index? %>
+            <p><%= link_to 'Учебные материалы', books_path %></p>
+          <% end %>
+        </div>
+
+        <div class="">
+          <% if policy([:admin, :user]).index? %>
+            <p><%= link_to 'Администратор', admin_users_path %></p>
+          <% end %>
+        </div>
+
+        <div class="">
+          <p><%= link_to 'Переводчик', translations_path %></p>
+        </div>
+
+          <div class="">
+            <% if current_user.present? %>
+              <span class="title-sm"><%= link_to fa_icon('user-circle') + ' ' + current_user.login, profile_path %></span>
+              <%= button_to 'Выйти', session_path, method: :delete, class: 'button button-main' %>
+            <% else %>
+              <%= link_to 'Регистрация', new_user_path, class: 'button button-main' %>
+              <%= link_to 'Вход', new_session_path, class: 'button button-main ml' %>
+            <% end %>
+          </div>
+      </div>
+
+      <% if flash[:notice].present? %>
+        <p class="mb mt message message-notice"><%= flash[:notice] %></p>
+      <% elsif flash[:alert].present? %>
+        <p class="mb mt message message-alert"><%= flash[:alert] %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

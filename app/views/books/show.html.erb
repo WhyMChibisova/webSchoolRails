@@ -1,0 +1,32 @@
+<div class="container">
+
+  <p class="icon"><%= link_to fa_icon('arrow-left'), :back %></p>
+
+  <div class="mb-sm">
+    <div class="text-right">
+      <% if policy(@book).edit? %>
+        <p class="mt icon"><%= link_to fa_icon('edit'), edit_book_path(@book), title: 'Редактировать' %></p>
+      <% end %>
+
+      <% if policy(@book).destroy? %>
+        <p class="mt ml icon">
+          <%= link_to fa_icon('trash'), book_path(@book), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Вы уверены, что хотите удалить учебный материал?"
+          }, title: 'Удалить' %>
+        </p>
+      <% end %>
+    </div>
+
+    <p class="title"><%= "Название: #{@book.name}" %></p>
+  </div>
+
+  <div class="item-footer">
+    <p class="mt text-lg"><%= "Автор: #{@book.author}" %></p>
+    <p class="mt text-lg"><%= "Язык изучения: #{@book.language} "  %></p>
+    <p class="mt mb text-lg"><%= "Уровень языка: #{@book.level}" %></p>
+    <label class="mt text-lg">Описание</label>
+    <textarea class="form-text-area mt-sm" disabled><%= @book.description %></textarea>
+  </div>
+
+</div>

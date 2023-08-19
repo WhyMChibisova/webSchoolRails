@@ -1,0 +1,54 @@
+<%= form_with model: event do |form| %>
+
+<div>
+  <p><%= form.label :name, 'Название' %></p>
+  <p><%= form.text_field :name, class: 'form-text-field' %></p>
+  <% event.errors.full_messages_for(:name).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :date, 'Дата проведения' %></p>
+  <p><%= form.date_field :date, class: 'form-text-field' %></p>
+  <% event.errors.full_messages_for(:date).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :time, 'Время проведения' %></p>
+  <p><%= form.time_field :time, class: 'form-text-field' %></p>
+  <% event.errors.full_messages_for(:time).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :place, 'Место проведения' %></p>
+  <p><%= form.text_field :place, class: 'form-text-field' %></p>
+  <% event.errors.full_messages_for(:place).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :language, 'Язык изучения' %></p>
+  <p><%= form.text_field :language, class: 'form-text-field' %></p>
+  <% event.errors.full_messages_for(:language).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.label :description, 'Описание' %></p>
+  <p><%= form.text_area :description, class: 'form-text-area' %></p>
+  <% event.errors.full_messages_for(:description).each do |message| %>
+    <p class="mt-sm text-red "><%= fa_icon('exclamation-triangle') + ' ' + message %></p>
+  <% end %>
+</div>
+
+<div>
+  <p class="mt"><%= form.submit 'Сохранить', class: 'button button-main' %></p>
+</div>
+<% end %>

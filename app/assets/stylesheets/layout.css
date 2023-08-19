@@ -1,0 +1,36 @@
+body {
+  background-image: url(home.jpg);
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 40px;
+  width: 100%;
+}
+
+.container {
+  background: #fff;
+}
+
+.container, .navbar {
+  padding: 20px;
+}
+
+.navbar {
+  align-items: center;
+  background-color: #370617;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+img {
+  border-radius: 50%;
+}
